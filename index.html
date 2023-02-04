@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+         #btn {
+            background-color:rgb(105, 206, 105);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-left: 230px;
+            cursor: pointer;
+
+    }
+        #container1 {
+            width: 10px;
+            height: 200px;
+            background-color: #999;
+            margin-top: 20%;
+            float: left;
+        }
+
+        #container2 {
+            width: 10px;
+            height: 200px;
+            background-color: #999;
+            margin-top: 20%;
+            float: right;
+        }
+
+        #ball1 {
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background-color: rgb(105, 206, 105);
+            float: left;
+            margin-top: 150px;
+            position: relative;
+        }
+
+        #ball2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background-color: rgb(105, 206, 105);
+            float: right;
+            margin-top: 250px;
+            position: relative;
+            background-color: rgb(156, 98, 211);
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="start()">START</button>
+    <div id="container1"></div>
+    <div id="container2"></div>
+
+        <div id="ball1"></div>
+        <div id="ball2"></div>
+    </div>
+    
+
+<script>
+    function start() {
+        let id = null;
+            let start = document.getElementById("ball1");
+            let end = document.getElementById("ball2");
+            let pos = 10;
+            let a = 0;
+            clearInterval(id);
+            id = setInterval(frame,3);
+            function frame(){
+               if(a >= 600) {
+                if(pos == 0){
+                    a = pos;
+                };
+                //clearInterval(id);
+                pos--
+                start.style.left = pos + "px";
+                end.style.right = pos + "px";
+                start.style.backgroundColor = "rgb(156, 98, 211)";
+                end.style.backgroundColor = "rgb(105, 206, 105)";
+               }else{
+                pos++;
+                a++;
+                start.style.left = pos + "px";
+                end.style.right = pos + "px";
+                start.style.backgroundColor = "rgb(105, 206, 105)";
+                end.style.backgroundColor = "rgb(156, 98, 211)";
+               }
+            }
+        }
+
+    
+</script>
+</body>
+</html>
